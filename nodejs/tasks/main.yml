@@ -1,0 +1,28 @@
+- name: Updaten apt cache
+  apt:
+    update_cache: yes
+
+- name: Installeren Node.js dependencies
+  apt:
+    name: "{{ item }}"
+    state: present
+    loop:
+      - curl
+      - software-properties-common
+
+- name: Toevoegen NodeSource repository
+  apt_repository:
+    repo: "deb https://deb.nodesource.com/node_14.x {{ ansible_distribution_release }} main"
+    state: present
+    update_cache: yes
+    filename: nodesource
+
+- name: Installeren van Node.js
+  apt:
+    name: nodejs
+    state: present
+
+- name: Install build-essential
+  apt:
+    name: build-essential
+    state: present

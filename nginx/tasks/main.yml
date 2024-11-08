@@ -1,0 +1,9 @@
+- name: Updaten van de packages
+  apt:
+    update_cache: yes
+
+- name: Installeren nginx
+  apt:
+    name: nginx
+    state: present
+
