@@ -1,8 +1,0 @@
-- name: Updaten packages
-  apt:
-    update_cache: yes
-
-- name: Installeren MySQL
-  apt:
-    name: mysql-server
-    state: present
